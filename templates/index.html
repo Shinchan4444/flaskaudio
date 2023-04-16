@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Text to Speech</title>
+</head>
+<body>
+    <h1>Text to Speech</h1>
+    <form method="POST" action="/speak">
+        <label for="text">Enter Text:</label>
+        <input type="text" name="text" id="text">
+        <button type="submit">Speak</button>
+    </form>
+    {% if audio_file %}
+    <audio controls>
+        <source src="{{ url_for('send_audio', path=audio_file) }}" type="audio/mpeg">
+    </audio>
+    {% endif %}
+</body>
+</html>
